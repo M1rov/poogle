@@ -1,0 +1,31 @@
+$btnColor: rgb(57, 57, 57);
+$btnBgColor: rgba(194, 194, 194, 0.49);
+
+.main {
+  text-align: center;
+  min-height: 100vh;
+
+  &__title {
+    padding-top: 200px;
+    font-size: 3em;
+    user-select: none;
+    margin-bottom: 50px;
+  }
+
+  &__btn {
+    margin-top: 50px;
+    background: $btnBgColor;
+    color: $btnColor;
+    padding: 15px 60px;
+    border-radius: 15px;
+
+    &:hover {
+      border: 1px solid $btnColor;
+    }
+  }
+
+  &__search {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}

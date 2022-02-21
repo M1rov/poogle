@@ -1,0 +1,25 @@
+.result {
+  text-align: center;
+
+  &__top {
+    display: inline-block;
+    width: 80%;
+    margin-top: 30px;
+    position: relative;
+  }
+
+  &__search {
+    input {
+      padding-right: 70px;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    img{
+      width: 30px;
+    }
+  }
+}
