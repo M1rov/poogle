@@ -1,11 +1,11 @@
 import React from 'react';
 
-const ResultItem = () => {
+const Pagination = () => {
   return (
     <div>
-
+      
     </div>
   );
 };
 
-export default ResultItem;
+export default Pagination;

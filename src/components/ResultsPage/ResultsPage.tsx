@@ -1,40 +1,60 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useState} from 'react';
 import './ResultsPage.scss'
-import {useSearchParams} from "react-router-dom";
-import SearchController from "../../controller/search.controller";
-import SearchPage from "../SearchPage/SearchPage";
+import {Link, useParams, useSearchParams} from "react-router-dom";
 import searchIcon from '../../assets/images/right-arrow.png'
+import Search from "../Search/Search";
+import SearchResultsList from "./SearchResultsList/SearchResultsList";
+import ImageResultsList from "./ImageResultsList/ImageResultsList";
+
+enum searchTypes {
+  all = 'sites',
+  images = 'images'
+}
 
 const ResultsPage = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const params = useParams();
 
+  const [searchParams] = useSearchParams();
   const queryParam = searchParams.get('q');
 
-  useEffect(() => {
-    if(queryParam) {
-      SearchController.webSearch(queryParam).then(data => {
-        console.log(data)
-      })
-    }
-  }, [])
-
-
-  const searchBtn = useRef<HTMLButtonElement>(null);
+  const [query, setQuery] = useState(queryParam || '');
 
   return (
-    <div className='result'>
-      <div className="container">
-        <div className="result__top">
-          <SearchPage
-            searchBtn={searchBtn}
-            className='result__search'
-            initValue={queryParam || ''}
-          />
-          <button className='result__btn' ref={searchBtn}>
-            <img src={searchIcon} alt="search"/>
-          </button>
+    <div className='results'>
+        <div className="container">
+          <div className="results__top">
+            <Search
+              className='results__search'
+              query={query}
+              setQuery={setQuery}
+              button={
+                <button className='results__btn'>
+                  <img src={searchIcon} alt="search"/>
+                </button>
+              }
+            />
+          </div>
+          <div className="results__btns">
+            <Link
+              to={`/search/sites?q=${queryParam}&page=1`}
+              className={params.searchType === searchTypes.all ? 'active' : ''}
+            >
+              All
+            </Link>
+            <Link
+              to={`/search/images?q=${queryParam}`}
+              className={params.searchType === searchTypes.images ? 'active' : ''}
+            >
+              Images
+            </Link>
+          </div>
         </div>
-      </div>
+        {
+          params.searchType === searchTypes.all ?
+            <SearchResultsList/>
+            :
+            <ImageResultsList/>
+        }
     </div>
   );
 };

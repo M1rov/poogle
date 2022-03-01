@@ -1,4 +1,4 @@
-.result {
+.results {
   text-align: center;
 
   &__top {
@@ -12,6 +12,14 @@
     input {
       padding-right: 70px;
     }
+  }
+
+  &__btns {
+    color: teal;
+  }
+
+  .container {
+    max-width: 1340px;
   }
 
   &__btn {
