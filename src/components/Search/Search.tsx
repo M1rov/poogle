@@ -28,16 +28,16 @@ const Search: FC<props> = ({query, setQuery, className, button, ...props}) => {
             e.preventDefault();
             search();
           }}>
-      <label>
+      <label className='search-bar'>
         <img src={searchIcon} alt="search" className='search-bar__icon'/>
         <input {...props}
-               className='search-bar'
+               className='search-bar__input'
                type="text"
                value={query}
                onChange={e => setQuery(e.target.value)}
         />
+        {button}
       </label>
-      {button}
     </form>
   );
 };

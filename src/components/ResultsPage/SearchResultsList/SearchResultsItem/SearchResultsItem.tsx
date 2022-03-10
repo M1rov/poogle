@@ -1,19 +1,8 @@
 import React, {FC} from 'react';
 import {webSearchResult} from "../../../../interfaces/webSearch";
+import {truncateText, truncateURI} from "../../../../scripts/truncate";
 
 const SearchResultsItem: FC<{ result: webSearchResult }> = ({result}) => {
-
-  function truncateText(text: string, limit: number = 125): string {
-    text = text.trim();
-    if (text.length <= limit) return text;
-
-    text = text.slice(0, limit);
-    text = text.slice(0, text.lastIndexOf(' '));
-
-    return text.trim() + '...';
-  }
-
-  const truncateURI = (URI: string): string => URI.slice(0, URI.indexOf('/', 8))
 
   return (
     <div className='result'>
@@ -26,7 +15,7 @@ const SearchResultsItem: FC<{ result: webSearchResult }> = ({result}) => {
         </div>
       </a>
       <div className="result__description">
-        {truncateText(result.description)}
+        {truncateText(result.description, 220)}
       </div>
     </div>
   );

@@ -6,9 +6,17 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   font-size: 24px;
   font-family: Rubik, sans-serif;
+}
+
+ul {
+  list-style: none;
 }
 
 input, button, a {

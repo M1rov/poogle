@@ -23,6 +23,8 @@
 
 
     &__title {
+      text-align: left;
+      font-size: 0.8em;
       padding: 10px;
     }
 
@@ -40,5 +42,9 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;
-  gap: 40px;
+  gap: 20px 40px;
+}
+
+.infinite-scroll-component {
+  overflow: initial !important;
 }

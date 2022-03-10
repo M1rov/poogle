@@ -11,6 +11,5 @@ export interface imageSearchResult {
 
 export interface imageSearchResp {
   totalCount: number,
-  _type: string,
   value: imageSearchResult[],
 }
