@@ -31,31 +31,29 @@ const Pagination: FC<props> = ({totalPages, pageLimit = 20, pageNeighbours = 0, 
       <nav aria-label="Countries Pagination">
         <ul className="pagination">
           {pages.map((page, index) => {
-
-            if (page === LEFT_PAGE) return (
-              <li key={index} className="page-item">
-                <a className="page-link" href="#" aria-label="Previous" onClick={(e) => handleMoveLeft(e, totalPages, setCurrentPage, currentPage, onPageChanged)}>
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-            );
-
-            if (page === RIGHT_PAGE) return (
-              <li key={index} className="page-item">
-                <a className="page-link" href="#" aria-label="Next" onClick={(e) => handleMoveRight(e, totalPages, setCurrentPage, currentPage, onPageChanged)}>
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-            );
-
-            if (typeof page === "number") {
-              return (
-                <li key={index} className={`page-item${currentPage === page ? ' active' : ''}`}>
-                  <a className="page-link" href="#" onClick={(e) => handleClick(page, e, totalPages, setCurrentPage, onPageChanged)}>{page}</a>
+            switch (page) {
+              case LEFT_PAGE:
+                return <li key={index} className="page-item">
+                  <a className="page-link" href="#" aria-label="Previous"
+                     onClick={e => handleMoveLeft(e, totalPages, setCurrentPage, currentPage, onPageChanged)}>
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
                 </li>
-              );
+              case RIGHT_PAGE:
+                return <li key={index} className="page-item">
+                  <a className="page-link" href="#" aria-label="Next"
+                     onClick={e => handleMoveRight(e, totalPages, setCurrentPage, currentPage, onPageChanged)}>
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              default:
+                return (
+                  <li key={index} className={`page-item${currentPage === page ? ' active' : ''}`}>
+                    <a className="page-link" href="#"
+                       onClick={e => handleClick(typeof page === "number" ? page : 1, e, totalPages, setCurrentPage, onPageChanged)}>{page}</a>
+                  </li>
+                );
             }
-
           })}
 
         </ul>
