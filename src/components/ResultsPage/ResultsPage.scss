@@ -1,24 +1,64 @@
-.result {
+.results {
+  padding: 20px 0 50px 0;
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__loader {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .loader {
+      margin-bottom: 50px;
+    }
+  }
 
   &__top {
-    display: inline-block;
-    width: 80%;
-    margin-top: 30px;
-    position: relative;
+    width: 100%;
+    background: #fff;
+    padding: 15px 0;
+    position: sticky;
+    z-index: 1;
+    left: 0;
+    top: -1px; // need for check if stuck
+
+    &.sticky {
+      box-shadow: 2px 0 5px rgba(0, 0, 0, .5);
+    }
+  }
+
+  &__logo {
+    width: 200px;
+    position: absolute;
+    left: 20px;
+    top: 12px;
+  }
+
+  .container {
+    width: 100%;
   }
 
   &__search {
-    input {
-      padding-right: 70px;
-    }
+    width: 80%;
+  }
+
+  &__btns {
+    color: teal;
+  }
+
+  .container {
+    max-width: 1340px;
   }
 
   &__btn {
     position: absolute;
-    top: 15px;
+    top: 0;
     right: 20px;
-    img{
+
+    img {
       width: 30px;
     }
   }

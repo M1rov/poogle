@@ -5,11 +5,9 @@ $btnBgColor: rgba(194, 194, 194, 0.49);
   text-align: center;
   min-height: 100vh;
 
-  &__title {
-    padding-top: 200px;
-    font-size: 3em;
-    user-select: none;
-    margin-bottom: 50px;
+  &__logo {
+    margin-top: 200px;
+    width: 600px;
   }
 
   &__btn {

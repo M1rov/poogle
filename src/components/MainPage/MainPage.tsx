@@ -1,19 +1,26 @@
-import React, {FC, useRef} from 'react';
+import React, {FC, useState} from 'react';
 import './MainPage.scss'
-import SearchPage from "../SearchPage/SearchPage";
+import Search from "../Search/Search";
+import logo from '../../assets/images/logo.png'
 
 const MainPage: FC = () => {
-
-  const searchBtn = useRef<HTMLButtonElement>(null);
+  const [query, setQuery] = useState('');
 
   return (
     <div className='main'>
       <div className='container'>
-        <h1 className='main__title'>PooGLE</h1>
-        <SearchPage searchBtn={searchBtn} className='main__search'/>
-        <button className="main__btn" ref={searchBtn}>
-          Search
-        </button>
+          <img src={logo} alt="PooGLE" className='main__logo'/>
+        <Search
+          className='main__search'
+          query={query}
+          setQuery={setQuery}
+          button={
+            <button className="main__btn">
+              Search
+            </button>
+          }
+        />
+
       </div>
     </div>
   );

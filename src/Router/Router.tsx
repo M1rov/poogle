@@ -8,6 +8,6 @@ interface route {
 
 export const publicRoutes: route[] = [
     {path: '/', element: <MainPage/>},
-    {path: '/search', element: <ResultsPage/>},
+    {path: '/search/:searchType', element: <ResultsPage/>},
 ]
 
