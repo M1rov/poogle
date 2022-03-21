@@ -34,23 +34,24 @@ const Pagination: FC<props> = ({totalPages, pageLimit = 20, pageNeighbours = 0, 
             switch (page) {
               case LEFT_PAGE:
                 return <li key={index} className="page-item">
-                  <a className="page-link" href="#" aria-label="Previous"
+                  <button className="page-link" aria-label="Previous"
                      onClick={e => handleMoveLeft(e, totalPages, setCurrentPage, currentPage, onPageChanged)}>
                     <span aria-hidden="true">&laquo;</span>
-                  </a>
+                  </button>
                 </li>
               case RIGHT_PAGE:
                 return <li key={index} className="page-item">
-                  <a className="page-link" href="#" aria-label="Next"
+                  <button className="page-link" aria-label="Next"
                      onClick={e => handleMoveRight(e, totalPages, setCurrentPage, currentPage, onPageChanged)}>
                     <span aria-hidden="true">&raquo;</span>
-                  </a>
+                  </button>
                 </li>
               default:
                 return (
                   <li key={index} className={`page-item${currentPage === page ? ' active' : ''}`}>
-                    <a className="page-link" href="#"
-                       onClick={e => handleClick(typeof page === "number" ? page : 1, e, totalPages, setCurrentPage, onPageChanged)}>{page}</a>
+                    <button className="page-link"
+                       onClick={e => handleClick(typeof page === "number" ? page : 1, e, totalPages, setCurrentPage, onPageChanged)}>{page}
+                    </button>
                   </li>
                 );
             }
