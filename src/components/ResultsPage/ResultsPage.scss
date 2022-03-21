@@ -1,7 +1,20 @@
 .results {
   padding: 20px 0 50px 0;
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
+  &__loader {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .loader {
+      margin-bottom: 50px;
+    }
+  }
 
   &__top {
     width: 100%;
@@ -10,10 +23,10 @@
     position: sticky;
     z-index: 1;
     left: 0;
-    top: -1px;  // need for check if stuck
+    top: -1px; // need for check if stuck
 
     &.sticky {
-      box-shadow: 2px 0 5px rgba(0,0,0,.5);
+      box-shadow: 2px 0 5px rgba(0, 0, 0, .5);
     }
   }
 
@@ -44,7 +57,8 @@
     position: absolute;
     top: 0;
     right: 20px;
-    img{
+
+    img {
       width: 30px;
     }
   }

@@ -28,12 +28,10 @@ const ResultsPage = () => {
     if (ref) {
       const observer = new IntersectionObserver(
         ([e]) => {
-          console.log('HERE')
           e.target.classList.toggle('sticky', e.intersectionRatio < 1)
         },
         {threshold: [1]}
       );
-      console.log(ref)
       observer.observe(ref)
       return () => observer.unobserve(ref)
     }
@@ -43,7 +41,7 @@ const ResultsPage = () => {
     <div className='results'>
       <div className="results__top" ref={resultsTop}>
         <Link to={'/'} className='results__logo'>
-          <img src={logo}/>
+          <img src={logo} alt='logo'/>
         </Link>
         <div className="container">
           <div className="results__search">
